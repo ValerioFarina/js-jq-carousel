@@ -30,17 +30,25 @@ $(document).ready(function() {
     $('#prev .arrow').click(function() {
         // uso una variabile per ricordarmi qual è l'immagine corrente che viene mostrata
         var currentImg = $('img.visible');
+        // uso una variabile per ricordarmi qual è il current bullet
+        var currentBullet = $('.bullet.current');
         // cambio la classe dell'immagine corrente da "visible" a "hidden"
         currentImg.toggleClass('visible hidden');
+        // tolgo al current bullet la classe "current"
+        currentBullet.removeClass('current');
         // controllo se prima dell'immagine corrente che viene mostrata c'è un'altra immagine
         if (hasPrev(currentImg)) {
             // se c'è un'immagine prima di quella corrente,
             // cambio la classe dell'immagine precedente a quella corrente da "hidden" a "visible"
             currentImg.prev().toggleClass('visible hidden');
+            // inoltre, aggiungo al bullet che viene prima di quello corrente la classe "current"
+            currentBullet.prev().addClass('current');
         } else {
             // altrimenti, se l'immagine corrente è la prima,
             // cambio la classe dell'ultima immagine da "hidden" a "visible"
             $('#images img:last-child').toggleClass('visible hidden');
+            // inoltre, aggiungo all'ultimo bullet la classe "current"
+            $('.bullet:last-child').addClass('current');
         }
     });
 
