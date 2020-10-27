@@ -6,9 +6,17 @@ $(document).ready(function() {
         var currentImg = $('img.visible');
         // cambio la classe dell'immagine corrente da "visible" a "hidden"
         currentImg.toggleClass('visible hidden');
-        console.log(hasNext(currentImg));
-        // cambio la classe dell'immagine successiva a quella corrente da "hidden" a "visible"
-        currentImg.next().toggleClass('visible hidden');
+        // controllo se dopo l'immagine corrente che viene mostrata c'è un'altra immagine
+        if (hasNext(currentImg)) {
+            // se c'è un'immagine dopo quella corrente,
+            // cambio la classe dell'immagine successiva a quella corrente da "hidden" a "visible"
+            currentImg.next().toggleClass('visible hidden');
+        } else {
+            // altrimenti, se l'immagine corrente è l'ultima,
+            // cambio la classe della prima immagine da "hidden" a "visible"
+            $('#images img:first-child').toggleClass('visible hidden');
+        }
+
     });
 
 // fine document.ready
