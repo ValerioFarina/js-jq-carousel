@@ -52,6 +52,11 @@ $(document).ready(function() {
         }
     });
 
+    // intercetto il click dei bullets
+    $('.bullet').click(function() {
+        alert('Hai cliccato su un pallino');
+    });
+
 // fine document.ready
 });
 
