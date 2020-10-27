@@ -58,6 +58,12 @@ $(document).ready(function() {
         $('.bullet.current').removeClass('current');
         // aggiungo al bullet che viene cliccato la classe "current"
         $(this).addClass('current');
+        // salvo in una variabile l'indice (la posizione) del bullet che ho cliccato
+        var thisIndex = $(this).index();
+        // cambio la classe dell'immagine corrente da "visible" a "hidden"
+        $('img.visible').toggleClass('visible hidden');
+        // cambio da "hidden" a "visible" la classe dell'immagine con indice (posizione) pari a thisIndex
+        $('#images img:eq(' + thisIndex + ')').toggleClass('visible hidden');
     });
 
 // fine document.ready
