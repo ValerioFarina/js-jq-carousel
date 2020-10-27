@@ -4,17 +4,25 @@ $(document).ready(function() {
     $('#next .arrow').click(function() {
         // uso una variabile per ricordarmi qual è l'immagine corrente che viene mostrata
         var currentImg = $('img.visible');
+        // uso una variabile per ricordarmi qual è il current bullet
+        var currentBullet = $('.bullet.current');
         // cambio la classe dell'immagine corrente da "visible" a "hidden"
         currentImg.toggleClass('visible hidden');
+        // tolgo al current bullet la classe "current"
+        currentBullet.removeClass('current');
         // controllo se dopo l'immagine corrente che viene mostrata c'è un'altra immagine
         if (hasNext(currentImg)) {
             // se c'è un'immagine dopo quella corrente,
             // cambio la classe dell'immagine successiva a quella corrente da "hidden" a "visible"
             currentImg.next().toggleClass('visible hidden');
+            // inoltre, aggiungo al bullet che viene dopo quello corrente la classe "current"
+            currentBullet.next().addClass('current');
         } else {
             // altrimenti, se l'immagine corrente è l'ultima,
             // cambio la classe della prima immagine da "hidden" a "visible"
             $('#images img:first-child').toggleClass('visible hidden');
+            // inoltre, aggiungo al primo bullet la classe "current"
+            $('.bullet:first-child').addClass('current');
         }
     });
 
