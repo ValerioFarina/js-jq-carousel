@@ -54,7 +54,10 @@ $(document).ready(function() {
 
     // intercetto il click dei bullets
     $('.bullet').click(function() {
-        alert('Hai cliccato su un pallino');
+        // tolgo al current bullet la classe "current"
+        $('.bullet.current').removeClass('current');
+        // aggiungo al bullet che viene cliccato la classe "current"
+        $(this).addClass('current');
     });
 
 // fine document.ready
